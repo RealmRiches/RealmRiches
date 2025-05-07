@@ -1,29 +1,30 @@
-const express = require('express');
-const http = require('http');
-const { Server } = require('socket.io');
-
+const express = require("express");
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server);
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 
-// Serve static files (like HTML, CSS) from 'public' folder
-app.use(express.static('public'));
+// Serve static files (HTML, CSS, JS) from the current folder
+app.use(express.static(__dirname));
 
-// Handle connection from clients
-io.on('connection', (socket) => {
-  console.log('A user connected');
+// Serve index.html when user visits "/"
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
-  socket.on('message', (msg) => {
-    console.log('Message:', msg);
-    io.emit('message', msg); // Broadcast to all connected clients
+// Socket.IO logic
+io.on("connection", (socket) => {
+  console.log("A user connected");
+
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg); // broadcast to all users
   });
 
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
+  socket.on("disconnect", () => {
+    console.log("A user disconnected");
   });
 });
 
-// Start the server
-server.listen(3000, () => {
-  console.log('Server is running at http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+http.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
