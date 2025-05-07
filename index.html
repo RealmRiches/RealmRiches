@@ -1,105 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Realm Riches | Marketplace</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+    <style>
+        #chatBox {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            padding: 10px;
+        }
+        #messageInput {
+            width: 80%;
+        }
+        #sendButton {
+            width: 18%;
+        }
+    </style>
 </head>
 <body>
+    <h1>Real-Time Chat</h1>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-  <a class="navbar-brand" href="index.html">The Realm Riches</a>
-  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-      <li class="nav-item"><a class="nav-link active" href="marketplace.html">Marketplace</a></li>
-      <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
-      <li class="nav-item"><a class="nav-link" href="contact.html">Support</a></li>
-      <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2" href="login.html">Login</a></li>
-    </ul>
-  </div>
-</nav>
+    <div id="chatBox"></div>
 
-<!-- Header -->
-<header class="bg-primary text-white text-center py-5">
-  <h1>Browse All Listings</h1>
-  <p class="lead">Accounts, Gold, Items & More</p>
-</header>
+    <input type="text" id="messageInput" placeholder="Type a message..." />
+    <button id="sendButton">Send</button>
 
-<!-- Filters -->
-<section class="container mt-4">
-  <div class="row mb-3">
-    <div class="col-md-3">
-      <select class="form-select">
-        <option selected>Filter by Game</option>
-        <option value="rs">RuneScape</option>
-        <option value="valorant">Valorant</option>
-        <option value="gta">GTA 5</option>
-      </select>
-    </div>
-    <div class="col-md-3">
-      <select class="form-select">
-        <option selected>Sort by</option>
-        <option value="price-low">Price: Low to High</option>
-        <option value="price-high">Price: High to Low</option>
-      </select>
-    </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Search item or game...">
-    </div>
-  </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io(); // Establish a connection to the server
 
-  <!-- Listings -->
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="images/rs-gold.jpg" class="card-img-top" alt="RuneScape Gold">
-        <div class="card-body">
-          <h5 class="card-title">RuneScape Gold - 100M</h5>
-          <p>$49.99 | Instant Delivery</p>
-          <a href="#" class="btn btn-outline-primary w-100">Buy Now</a>
-        </div>
-      </div>
-    </div>
+        // DOM elements
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const chatBox = document.getElementById('chatBox');
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="images/valorant.jpg" class="card-img-top" alt="Valorant Account">
-        <div class="card-body">
-          <h5 class="card-title">Valorant Account (Diamond)</h5>
-          <p>$59.99 | 10 Skins</p>
-          <a href="#" class="btn btn-outline-primary w-100">Buy Now</a>
-        </div>
-      </div>
-    </div>
+        // When the "Send" button is clicked, send the message to the server
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message) {
+                socket.emit('chatMessage', message);  // Send message to server
+                messageInput.value = '';  // Clear the input field
+            }
+        });
 
-    <div class="col-md-4">
-      <div class="card h-100">
-        <img src="images/gta.jpg" class="card-img-top" alt="GTA Account">
-        <div class="card-body">
-          <h5 class="card-title">GTA 5 Online Modded</h5>
-          <p>$39.99 | Rank 150 + $10M</p>
-          <a href="#" class="btn btn-outline-primary w-100">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Add more listings here -->
-
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3 mt-5">
-  <p>&copy; 2025 The Realm Riches. All rights reserved.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        // When the server sends a message, display it in the chat box
+        socket.on('chatMessage', (msg) => {
+            chatBox.innerHTML += `<p>${msg}</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;  // Auto-scroll to the bottom
+        });
+    </script>
 </body>
 </html>
