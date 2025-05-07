@@ -1,0 +1,32 @@
+/* Listing cards */
+.card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
+}
+/* --- Sell Page Enhancements --- */
+form input, form textarea, form select {
+  box-shadow: none !important;
+  border-radius: 8px;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+form input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.4);
+}
+
+.card {
+  border-radius: 12px;
+}
+form input, form textarea {
+  border-radius: 8px;
+  box-shadow: none;
+}
+form input:focus, form textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.4);
+}
