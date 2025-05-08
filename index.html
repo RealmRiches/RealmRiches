@@ -4,15 +4,26 @@
   <meta charset="UTF-8" />
   <title>The Realm Riches | Marketplace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background-color: #ffcccc; /* Light red for the background */
+      background-color: #ffcccc;
+      font-family: 'Poppins', sans-serif;
     }
+
     .navbar {
-      background-color: #cc0000; /* Dark red for the navbar */
+      background-color: #cc0000;
     }
+
     .navbar-brand {
       display: flex;
       flex-direction: column;
@@ -20,68 +31,105 @@
       font-size: 1.5rem;
       color: white !important;
     }
+
     .navbar-brand span {
       font-size: 1rem;
       font-weight: bold;
     }
+
     .navbar-logo {
       width: 50px;
       height: 50px;
       margin-bottom: 5px;
     }
+
     .nav-link, .navbar-toggler-icon {
-      color: white !important; /* White text for contrast */
+      color: white !important;
     }
+
     .btn-primary {
-      background-color: #cc0000; /* Dark red buttons */
+      background-color: #cc0000;
       border-color: #cc0000;
     }
+
     .btn-primary:hover {
-      background-color: #a30000; /* Slightly darker red on hover */
+      background-color: #a30000;
       border-color: #a30000;
     }
+
     header {
-      background-color: #cc0000; /* Dark red header */
-      color: white; /* White text */
-    }
-    footer {
-      background-color: #cc0000; /* Dark red footer */
-      color: white; /* White text */
-    }
-    .card {
-      border-color: #cc0000; /* Red border for cards */
-    }
-    .card-title, .card-body p {
-      color: #cc0000; /* Dark red text for titles and details */
-    }
-    .form-select, .form-control {
-      border-color: #cc0000; /* Red borders for input fields */
-    }
-    .btn-outline-primary {
-      color: #cc0000; /* Dark red text for outline buttons */
-      border-color: #cc0000;
-    }
-    .btn-outline-primary:hover {
-      background-color: #cc0000; /* Dark red background on hover */
+      background-color: #cc0000;
       color: white;
     }
+
+    footer {
+      background: linear-gradient(45deg, #cc0000, #a30000);
+      color: white;
+    }
+
+    .card {
+      border-color: #cc0000;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card-title, .card-body p {
+      color: #cc0000;
+    }
+
+    .card-img-top {
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+      transform: scale(1.1);
+    }
+
+    .form-select, .form-control {
+      border-color: #cc0000;
+    }
+
+    .btn-outline-primary {
+      color: #cc0000;
+      border-color: #cc0000;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: #cc0000;
+      color: white;
+    }
+
     .social-links a {
       margin: 0 10px;
       color: #cc0000;
+      font-size: 1.5rem;
     }
+
     .social-links a:hover {
       color: #a30000;
     }
+
     .footer-logo {
       width: 80px;
       height: 80px;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+    }
+
+    .sticky-top {
+      z-index: 1020;
     }
   </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark px-3">
+<nav class="navbar navbar-expand-lg navbar-dark px-3 sticky-top">
   <a class="navbar-brand" href="index.html">
     <img src="images/logo.png" alt="Realm Riches Logo" class="navbar-logo" />
     <span>The</span>
@@ -96,7 +144,7 @@
       <li class="nav-item"><a class="nav-link active" href="marketplace.html">Marketplace</a></li>
       <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
       <li class="nav-item"><a class="nav-link" href="contact.html">Support</a></li>
-      <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2" href="login.html">Login</a></li>
+      <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -141,12 +189,13 @@
   <!-- Listings -->
   <div class="row g-4">
     <div class="col-md-4">
-      <div class="card h-100">
+      <div class="card h-100 position-relative">
+        <span class="badge bg-success position-absolute top-0 start-0 m-2">Hot</span>
         <img src="images/rs-gold.jpg" class="card-img-top" alt="RuneScape Gold">
         <div class="card-body">
           <h5 class="card-title">RuneScape Gold - 100M</h5>
           <p>$49.99 | Instant Delivery</p>
-          <a href="#" class="btn btn-outline-primary w-100">Buy Now</a>
+          <a href="#" class="btn btn-outline-primary w-100"><i class="fas fa-shopping-cart"></i> Buy Now</a>
         </div>
       </div>
     </div>
@@ -157,7 +206,7 @@
         <div class="card-body">
           <h5 class="card-title">Valorant Account (Diamond)</h5>
           <p>$59.99 | 10 Skins</p>
-          <a href="#" class="btn btn-outline-primary w-100">Buy Now</a>
+          <a href="#" class="btn btn-outline-primary w-100"><i class="fas fa-shopping-cart"></i> Buy Now</a>
         </div>
       </div>
     </div>
@@ -168,7 +217,7 @@
         <div class="card-body">
           <h5 class="card-title">GTA 5 Online Modded</h5>
           <p>$39.99 | Rank 150 + $10M</p>
-          <a href="#" class="btn btn-outline-primary w-100">Buy Now</a>
+          <a href="#" class="btn btn-outline-primary w-100"><i class="fas fa-shopping-cart"></i> Buy Now</a>
         </div>
       </div>
     </div>
@@ -180,13 +229,13 @@
   <h2>Join Us</h2>
   <p>Connect with us on our social platforms:</p>
   <div class="social-links">
-    <a href="https://discord.gg/ghpGDZxPRV" target="_blank">Discord</a> |
-    <a href="https://t.me/RealmRiches" target="_blank">Telegram</a> |
-    <a href="https://x.com/RealmRiches" target="_blank">Twitter</a> |
-    <a href="https://www.instagram.com/realmriches/" target="_blank">Instagram</a>
+    <a href="https://discord.gg/ghpGDZxPRV" target="_blank"><i class="fab fa-discord"></i></a>
+    <a href="https://t.me/RealmRiches" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://x.com/RealmRiches" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/realmriches/" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
-  <p>Explore related subreddits:</p>
-  <ul>
+  <p class="mt-3">Explore related subreddits:</p>
+  <ul class="list-unstyled">
     <li><a href="https://www.reddit.com/r/realmriches" target="_blank">r/realmriches</a></li>
     <li><a href="https://www.reddit.com/r/forniteaccountsell" target="_blank">r/forniteaccountsell</a></li>
     <li><a href="https://www.reddit.com/r/pokemongoaccounttrade" target="_blank">r/pokemongoaccounttrade</a></li>
@@ -197,11 +246,12 @@
 </section>
 
 <!-- Footer -->
-<footer class="text-center py-3 mt-5">
-  <img src="images/logo.png" alt="Realm Riches Logo" class="footer-logo" />
+<footer class="text-center py-4 mt-5">
+  <img src="images/logo.png" alt="Realm Riches Logo" class="footer-logo mb-2" />
   <p>&copy; 2025 The Realm Riches. All rights reserved.</p>
 </footer>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
