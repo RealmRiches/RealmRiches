@@ -13,7 +13,18 @@
     .navbar {
       background-color: #cc0000; /* Dark red for the navbar */
     }
-    .navbar-brand, .nav-link, .navbar-toggler-icon {
+    .navbar-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.5rem;
+      color: white !important;
+    }
+    .navbar-brand span {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .nav-link, .navbar-toggler-icon {
       color: white !important; /* White text for contrast */
     }
     .btn-primary {
@@ -49,13 +60,23 @@
       background-color: #cc0000; /* Dark red background on hover */
       color: white;
     }
+    .social-links a {
+      margin: 0 10px;
+      color: #cc0000;
+    }
+    .social-links a:hover {
+      color: #a30000;
+    }
   </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark px-3">
-  <a class="navbar-brand" href="index.html">The Realm Riches</a>
+  <a class="navbar-brand" href="index.html">
+    <span>The</span>
+    Realm Riches
+  </a>
   <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -76,15 +97,23 @@
   <p class="lead">Accounts, Gold, Items & More</p>
 </header>
 
+<!-- Escrow Service Section -->
+<section class="container mt-4">
+  <h2 class="text-center">Escrow/Middleman Services</h2>
+  <p class="text-center">
+    Protect your transactions with our trusted escrow services. We ensure secure and safe trades for all platforms, including computer games, PlayStation, and mobile games.
+  </p>
+</section>
+
 <!-- Filters -->
 <section class="container mt-4">
   <div class="row mb-3">
     <div class="col-md-3">
       <select class="form-select">
-        <option selected>Filter by Game</option>
-        <option value="rs">RuneScape</option>
-        <option value="valorant">Valorant</option>
-        <option value="gta">GTA 5</option>
+        <option selected>Filter by Platform</option>
+        <option value="pc">Computer Games</option>
+        <option value="playstation">PlayStation</option>
+        <option value="mobile">Mobile Games</option>
       </select>
     </div>
     <div class="col-md-3">
@@ -133,10 +162,28 @@
         </div>
       </div>
     </div>
-
-    <!-- Add more listings here -->
-
   </div>
+</section>
+
+<!-- Social Links -->
+<section class="container mt-5 text-center">
+  <h2>Join Us</h2>
+  <p>Connect with us on our social platforms:</p>
+  <div class="social-links">
+    <a href="https://discord.gg/ghpGDZxPRV" target="_blank">Discord</a> |
+    <a href="https://t.me/RealmRiches" target="_blank">Telegram</a> |
+    <a href="https://x.com/RealmRiches" target="_blank">Twitter</a> |
+    <a href="https://www.instagram.com/realmriches/" target="_blank">Instagram</a>
+  </div>
+  <p>Explore related subreddits:</p>
+  <ul>
+    <li><a href="https://www.reddit.com/r/realmriches" target="_blank">r/realmriches</a></li>
+    <li><a href="https://www.reddit.com/r/forniteaccountsell" target="_blank">r/forniteaccountsell</a></li>
+    <li><a href="https://www.reddit.com/r/pokemongoaccounttrade" target="_blank">r/pokemongoaccounttrade</a></li>
+    <li><a href="https://www.reddit.com/r/buyinglolaccount" target="_blank">r/buyinglolaccount</a></li>
+    <li><a href="https://www.reddit.com/r/buysellswap" target="_blank">r/buysellswap</a></li>
+    <li><a href="https://www.reddit.com/r/domainseller" target="_blank">r/domainseller</a></li>
+  </ul>
 </section>
 
 <!-- Footer -->
