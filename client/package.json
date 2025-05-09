@@ -5,6 +5,7 @@
   "description": "",
   "scripts": {
     "build": "vite build"
+    "preinstall": "npm install vite --global"
   },
   "dependencies": {
     "axios": "^1.9.0"
