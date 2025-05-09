@@ -1,28 +1,25 @@
 {
   "name": "realmrichesescrow",
   "version": "1.0.0",
-  "main": "index.js",
   "description": "",
+  "main": "index.js",
   "scripts": {
+    "preinstall": "npm install vite --global",
     "build": "vite build"
-    "preinstall": "npm install vite --global"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "axios": "^1.9.0"
   },
   "devDependencies": {
     "vite": "^6.3.5"
   },
-  "engines": {
-    "node": "18.x"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RealmRiches/RealmRichesEscrow.git"
+    "url": "git+https://github.com/RealmRiches/RealmRichesEscrow.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/RealmRiches/RealmRichesEscrow/issues"
   },
