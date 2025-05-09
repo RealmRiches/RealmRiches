@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "axios": "^1.9.0"
-  }
+  },
+  "name": "realmrichesescrow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  },
+    "scripts": {
+  "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RealmRiches/RealmRichesEscrow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RealmRiches/RealmRichesEscrow/issues"
+  },
+  "homepage": "https://github.com/RealmRiches/RealmRichesEscrow#readme",
+  "description": ""
 }
